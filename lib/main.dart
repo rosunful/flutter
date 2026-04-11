@@ -38,7 +38,7 @@ class Fura extends StatelessWidget {
               },
               child: Text("Btn 3"),
             ),
-            Container(height: 100, width: 100, child: Center(child: Image.asset("assets/images/boy.png"))),
+            SizedBox(height: 100, width: 100, child: Center(child: Image.asset("assets/images/boy.png"))),
           ],
         ),
       ),
