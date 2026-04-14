@@ -9,14 +9,14 @@ class Day3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var arrNames = ["pokhara", 'ktm', 'sanjya', 'damauli', 'chitwan', 'itahari'];
+
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 171, 163, 136),
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Title(
-            color: Colors.blueAccent,
-            child: Text("Facebook", style: TextStyle(backgroundColor: const Color.fromARGB(255, 88, 175, 205))),
-          ),
+          title: Text("Facebook"), // Simplified Title for standard use
         ),
         body: Center(
           child: Container(
@@ -33,56 +33,50 @@ class Day3 extends StatelessWidget {
                 CircleAvatar(backgroundColor: Colors.green),
                 CircleAvatar(backgroundColor: Colors.green),
                 CircleAvatar(backgroundColor: Colors.green),
+                
+                Expanded(
+                  child: ListView.separated(
+                    itemCount: arrNames.length,
+                    itemBuilder: (context, index) {
+                      return Text(arrNames[index]);
+                    },
+                    separatorBuilder: (context, index) {
+                      return Divider(height: 10, thickness: 2); // Reduced height for visibility
+                    },
+                  ),
+                ),
+
+                // This Padding is now INSIDE the Column's children list
                 Padding(
                   padding: const EdgeInsets.all(11),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
-                          onTap: () {
-                            print("Data one");
-                          },
+                          onTap: () => print("Data one"),
                           child: Text("data"),
-
                         ),
                         InkWell(
-                          onTap: () {
-                            print("data 2 is pressed");
-                          },
+                          onTap: () => print("data 2 is pressed"),
                           child: Text("data"),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("data"),
-                        ),
+                        Padding(padding: const EdgeInsets.all(8.0), child: Text("data")),
                         Text("data2"),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("dataa"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("dasta"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("dsata"),
-                        ),
+                        Padding(padding: const EdgeInsets.all(8.0), child: Text("dataa")),
+                        Padding(padding: const EdgeInsets.all(8.0), child: Text("dasta")),
+                        Padding(padding: const EdgeInsets.all(8.0), child: Text("dsata")),
                         Text("dasta"),
-                        
                       ],
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-        ),
-        backgroundColor: const Color.fromARGB(255, 171, 163, 136),
-      ),
-    );
+              ], // End of Column children
+            ), // End of Column
+          ), // End of Container
+        ), // End of Center
+      ), // End of Scaffold
+    ); // End of MaterialApp
   }
 }
