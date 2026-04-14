@@ -9,7 +9,7 @@ class DayFour extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Day4")),
         body: Center(
