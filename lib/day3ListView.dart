@@ -9,7 +9,6 @@ class ListViewExplore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     var arrName = ["hari", "sari", "shyam", "ninja", "hattori", "sinjo"];
 
     return MaterialApp(
