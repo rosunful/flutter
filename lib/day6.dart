@@ -37,8 +37,23 @@ class DaySix extends StatelessWidget {
               },
               itemCount: arrList.length,
               separatorBuilder: (context, index) {
-                return Divider(height: 2,thickness: 1.5,);
+                return Divider(height: 2, thickness: 1.5);
               },
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/boy.png"),
+                    minRadius: 20,
+                    maxRadius: 30,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
