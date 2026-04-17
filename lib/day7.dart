@@ -128,27 +128,28 @@ class Day7 extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-
               Container(
                 width: double.infinity,
                 height: 40,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(5)),
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 0.3
-                  )
+                  border: Border.all(color: Colors.black, width: 0.3),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(backgroundImage: AssetImage("assets/images/boy.png"),
-                    maxRadius: 10,),
-                    const SizedBox(width: 10,),
-                    Text("Continue with Google",  style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),)
+                    CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/boy.png"),
+                      maxRadius: 10,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      "Continue with Google",
+                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
+                    ),
                   ],
-                )
+                ),
               ),
 
               const SizedBox(height: 9),
@@ -159,44 +160,40 @@ class Day7 extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 74, 132, 195),
                   borderRadius: BorderRadius.all(Radius.circular(5)),
-                   border: Border.all(
-                    color: Colors.black,
-                    width: 0.3
-                  )
+                  border: Border.all(color: Colors.black, width: 0.3),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(backgroundImage:AssetImage("assets/images/boy.png"),
-                    maxRadius: 10,),
-                    const SizedBox(width: 10,),
+                    CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/boy.png"),
+                      maxRadius: 10,
+                    ),
+                    const SizedBox(width: 10),
                     Text(
-                    "Continue with Facebook",
-                    style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),
-                  ),                    
+                      "Continue with Facebook",
+                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),
+                    ),
                   ],
                 ),
               ),
 
-              const SizedBox(height: 50,),
+              const SizedBox(height: 50),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account? ",style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),),
-                  const SizedBox(width: 5,),
-                   Text("Sign Up",style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                  ),),
+                  Text(
+                    "Don't have an account? ",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    "Sign Up",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  ),
                 ],
-              )
-
-
-
+              ),
             ],
           ),
         ),
