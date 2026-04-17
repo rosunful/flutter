@@ -12,6 +12,15 @@ class Day8 extends StatelessWidget {
     var email = TextEditingController();
     var password = TextEditingController();
     var phone_number = TextEditingController();
+
+    callback() {
+      String getEmail = email.text.toString();
+      String getPassword = password.text.toString();
+      String getContact = phone_number.text.toString();
+
+      print("email:$getEmail, password:$getPassword,phone:$getContact");
+    }
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Profile"), backgroundColor: Colors.blueAccent),
@@ -78,7 +87,6 @@ class Day8 extends StatelessWidget {
 
                   // for now lets no disable this !!!1
                   // enabled: false,
-
                   decoration: InputDecoration(
                     labelText: 'Phone number',
                     prefixIcon: Icon(Icons.phone),
@@ -105,13 +113,7 @@ class Day8 extends StatelessWidget {
               const SizedBox(height: 12),
 
               ElevatedButton(
-                onPressed: () {
-                  String getEmail = email.text.toString();
-                  String getPassword = password.text.toString();
-                  String getContact = phone_number.text.toString();
-
-                  print("email:$getEmail, password:$getPassword,phone:$getContact");
-                },
+                onPressed: callback,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.lightBlue,
                   foregroundColor: Colors.white,
