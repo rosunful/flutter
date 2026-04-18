@@ -9,6 +9,7 @@ class Day8 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //when we do controller this will showed up
     var email = TextEditingController();
     var password = TextEditingController();
     var phone_number = TextEditingController();
