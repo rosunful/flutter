@@ -4,15 +4,19 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DbHelper {
+
+  //private constructor
+  DbHelper._();
+  
   // 1. Create a private static final instance at the class level
   static final DbHelper getInstance = DbHelper._();
+
   static final String tableNote = "note";
   static final String columnNoteSn = "s_no";
   static final String columnNoteTitle = "note";
   static final String columnNoteDesc = "note";
 
-  //private constructor
-  DbHelper._();
+  
 
   //database object
   Database? myDB;
@@ -29,6 +33,7 @@ class DbHelper {
     // }
   }
 
+  //creating the database
   Future<Database> opendb() async {
     Directory appDir = await getApplicationDocumentsDirectory();
 
@@ -46,15 +51,37 @@ class DbHelper {
     );
   }
 
-  //all queries
+  //notifying the database created
   Future<bool> addNote({required String mTitle, required String mDes}) async {
+    //This ensures the database is open and ready to receive data before you try to write to it.
     var db = await getdb();
 
-    int rowEffected = await db.insert(tableNote, { 
-      columnNoteTitle : mTitle,
-      columnNoteDesc : mDes
-     });
+    /*          (db.insert->tablenote)
+    This is the "Save" command. It takes a Map where: 
+     -  The Key (left side) is your database column name.
+     -  The Value (right side) is the actual text (mTitle, mDes) the user entered.
 
-     return rowEffected > 0;
+      (int rowEffected)
+     -  The database returns a number. If it successfully adds a row, it returns that row's unique ID (like 1, 2, or 3).*/
+    int rowEffected = await db.insert(tableNote, {
+      columnNoteTitle: mTitle,
+      columnNoteDesc: mDes,
+    });
+
+    /*  
+    (return rowEffected > 0;)
+    This converts that ID into a simple "Yes" or "No":
+    ID > 0: Success! Return true.
+    ID is 0: Something went wrong. Return false */
+    return rowEffected > 0;
+  }
+
+ //reading the all data
+  Future<List<Map<String, dynamic>>> getAllNotes() async {
+    var db = await getdb();
+
+    List<Map<String, dynamic>> mdata = await db.query(tableNote);
+
+    return mdata;
   }
 }
