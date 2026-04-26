@@ -22,7 +22,7 @@ class Dbhelpermiyago {
 
     String dbAddress = join(dir.path, "mydb.db");
 
-    return await openDatabase(
+    myDB = await openDatabase(
       dbAddress,
       onCreate: (db, version) async {
         await db.execute(
@@ -31,6 +31,7 @@ class Dbhelpermiyago {
       },
       version: 1,
     );
+    return myDB!;
   }
 
   Future<bool> addData({required String mTitle, required String mDesc}) async {
@@ -51,4 +52,37 @@ class Dbhelpermiyago {
 
     return mdata;
   }
+
+  Future<bool> updateNote({
+    required String title,
+    required String desc,
+    required int sn,
+  }) async {
+    var db = await geetdb();
+
+    int rowsEffected = await db.update(
+      tableName,
+      {columnTitle: title, columnDesc: desc},
+      where: "$columnSN = ?", 
+      whereArgs: [sn],
+    );
+
+    return rowsEffected > 0;
+  }
+
+  Future<bool> deleteNote({required int sno}) async {
+
+  var db = await geetdb();
+
+  int rowEffected = await db.delete(
+    tableName,
+    where: "$columnSN = ?",
+    whereArgs: [sno],
+  );
+
+  return rowEffected > 0;
+}
+
+
+
 }
